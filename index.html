@@ -1,23 +1,880 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "20대 신규 가입자의 디올뉴 그랜저 GN7 평균 보험료는 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "20대 초반 신규 가입의 경우 디올뉴 그랜저 GN7의 평균 보험료는 연령대 특성과 운전 경력 부족으로 인해 약 150만 원에서 220만 원 내외로 예상 금액이 산정됩니다. 20대 후반으로 넘어가면 평균 110만 원에서 150만 원 선으로 내려가며, 이때 다이렉트 저렴한곳 비교와 부부 한정 혹은 가족 운전 경력 인정 제도를 활용하면 가장 효율적으로 비용을 절감할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "디올뉴 그랜저 GN7 하이브리드와 가솔린 모델의 보험료 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "하이브리드 모델은 차량 가액이 가솔린 모델보다 높게 책정되기 때문에 자기차량손해(자차) 담보 요금이 다소 높게 계산됩니다. 그러나 하이브리드 전용 친환경 할인 혜택이나 첨단 안전장치 장착률이 높아 전체 요금제에서 상쇄되는 장점이 있습니다. 반면 가솔린 모델은 초기 가입 비용은 다소 저렴할 수 있으나 연간 주행거리가 길 경우 마일리지 할인 특약 구간에서 불리할 수 있어 개인의 연간 주행 패턴에 맞게 계산기를 돌려보는 것이 좋습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "인터넷 다이렉트 가입 시 사은품이나 현금지원 혜택을 받는 방법은 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네이버, 토스, 카카오톡 등 주요 금융 플랫폼이나 앱을 통해 신규 가입 이벤트를 신청하면 주유 상품권, 신세계 상품권, 혹은 네이버페이 포인트 등의 형태로 약 3만 원에서 최대 5만 원 상당의 혜택을 제공받을 수 있습니다. 온라인 성지나 좌표를 통해 제공되는 과도한 현금지원은 법적 제한이 있을 수 있으므로 공인된 대형 비교 사이트의 공식 제휴 이벤트를 통해 안전하게 사은품을 수령하는 방법을 추천합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "안전운전 점수 특약(UBI)으로 디올뉴 그랜저 GN7 보험료를 얼마나 할인받을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "티맵(TMAP)이나 카카오내비 등 모바일 내비게이션 앱을 연동하여 누적 주행거리 조건을 만족하고 안전운전 점수 기준(보통 80점 또는 81점 이상)을 충족하면 최소 10%에서 최대 13% 수준의 추가 할인을 받을 수 있습니다. 디올뉴 그랜저 GN7은 첨단 주행 보조 시스템이 기본 적용되어 있어 안전 운전 점수를 획득하기에 매우 유리한 조건을 갖추고 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #2C3E50; /* 클래식 네이비 */
+            --secondary-color: #4A90E2; /* 소프트 블루 */
+            --accent-color: #E67E22; /* 웜 오렌지 */
+            --text-main: #2D3748; /* 차분한 차콜 */
+            --text-muted: #718096; /* 슬레이트 그레이 */
+            --bg-light: #F7FAFC; /* 미색 베이지가 감도는 화이트 */
+            --bg-card: #FFFFFF;
+            --border-color: #E2E8F0;
+            --soft-yellow: #FEFCBF; /* 부드러운 파스텔 옐로우 */
+            --soft-teal: #E6FFFA; /* 화사한 파스텔 민트 */
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            line-height: 1.9; 
+            font-weight: 400; 
+        }
+        
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        /* 상단 헤더 */
+        header { 
+            background-color: var(--bg-card); 
+            padding: 25px 0; 
+            text-align: center; 
+            border-bottom: 3px solid var(--secondary-color); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.2em; 
+            color: var(--primary-color); 
+            font-weight: 900; 
+            letter-spacing: -1px;
+        }
+        header h1 a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+
+        /* 메인 배너 및 안내문구 */
+        .intro-banner { 
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495E 100%); 
+            color: #fff; 
+            text-align: center; 
+            padding: 70px 20px; 
+            border-radius: 0 0 30px 30px;
+        }
+        .intro-banner h2 { 
+            font-size: 2.8em; 
+            margin-bottom: 15px; 
+            font-weight: 900; 
+            letter-spacing: -1px;
+        }
+        .intro-banner p { 
+            font-size: 1.3em; 
+            margin-bottom: 0; 
+            font-weight: 300; 
+            color: #E2E8F0;
+        }
+        
+        /* 모의 계산기 & 입력란 확대 섹션 */
+        .calculator-container {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin: -40px auto 40px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--border-color);
+        }
+        .calculator-container h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-group label {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 1.05em;
+        }
+        .form-group input, .form-group select {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #FAFAFA;
+            color: var(--text-main);
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background-color: #FFF;
+        }
+        
+        /* 계산 결과 출력 영역 */
+        .calc-result-box {
+            background-color: var(--soft-teal);
+            border: 1px solid #B2F5EA;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        .calc-result-box h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+            color: #234E52;
+            font-weight: 700;
+        }
+        .calc-result-box p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #2C7A7B;
+        }
+        .calc-price {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+        
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.25em;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+        .btn-submit:hover {
+            background-color: #D35400;
+        }
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* 컨텐츠 본문 섹션 */
+        .content-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+        .content-card h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+        .content-card h3 {
+            font-size: 1.45em;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background-color: #EDF2F7;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+        .content-card p {
+            font-size: 1.08em;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        .content-card strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* 데이터 테이블 */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+        .premium-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            min-width: 600px;
+        }
+        .premium-table th {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px;
+            font-weight: 700;
+            font-size: 1em;
+        }
+        .premium-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95em;
+        }
+        .premium-table tr:last-child td {
+            border-bottom: none;
+        }
+        .premium-table tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+        .highlight-cell {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* 특징 강조 박스 */
+        .tip-box {
+            background-color: var(--soft-yellow);
+            border-left: 5px solid #D69E2E;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+        }
+        .tip-box h4 {
+            margin: 0 0 10px 0;
+            color: #B7791F;
+            font-size: 1.15em;
+            font-weight: 700;
+        }
+        .tip-box p {
+            margin: 0;
+            font-size: 1em;
+            color: #744210;
+        }
+
+        /* FAQ 아코디언 스타일 */
+        .faq-section {
+            margin-top: 40px;
+        }
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #FFF;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-trigger::after {
+            content: '+';
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-trigger::after {
+            transform: rotate(45deg);
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #F8FAFC;
+        }
+        .faq-content-inner {
+            padding: 20px;
+            font-size: 1.05em;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        /* 추천 태그 리스트 */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        .tag-item {
+            background-color: #EDF2F7;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .tag-item:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        /* 외부 링크 섹션 */
+        .external-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed var(--border-color);
+        }
+        .external-links h4 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .external-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .external-links li {
+            margin-bottom: 12px;
+        }
+        .external-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--secondary-color);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .external-links a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: var(--primary-color);
+            color: #A0AEC0;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.95em;
+            border-top: 5px solid var(--secondary-color);
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #CBD5E0;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            color: #FFF;
+            text-decoration: underline;
+        }
+
+        /* 반응형 그리드 시스템 */
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .intro-banner h2 {
+                font-size: 2em;
+            }
+            .intro-banner p {
+                font-size: 1.1em;
+            }
+            .content-card {
+                padding: 25px;
+            }
+            .content-card h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="/">디올뉴 그랜저 GN7 보험료 모의 계산 및 최적 가입 가이드</a></h1>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section class="intro-banner">
+            <div class="container">
+                <h2>디올뉴 그랜저 GN7 보험료 분석</h2>
+                <p>2026년 최신 기준 연령대별, 엔진 모델별 다이렉트 최저가 요금 계산법 안내</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 체류시간 증가를 위한 정교한 인터랙티브 모의 계산기 -->
+            <section class="calculator-container" id="calc-section">
+                <h2>실시간 디올뉴 그랜저 GN7 보험료 모의 계산기</h2>
+                <form id="insuranceForm" onsubmit="calculatePremium(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="carType">엔진 형식 및 등급 선택</label>
+                            <select id="carType" required>
+                                <option value="1.6h">1.6 가솔린 하이브리드 (친환경 할인)</option>
+                                <option value="2.5g">2.5 가솔린 익스클루시브/캘리그래피</option>
+                                <option value="3.5g">3.5 가솔린 프리미엄/익스클루시브</option>
+                                <option value="3.5lpi">3.5 LPi 일반/렌터카 모델</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="driverAge">가입 운전자 연령 (만 나이 기준)</label>
+                            <select id="driverAge" required>
+                                <option value="21">만 21세 이상 (초보 및 군필자)</option>
+                                <option value="24">만 24세 이상 (사회초년생)</option>
+                                <option value="26">만 26세 이상 (대부분 할인 시작)</option>
+                                <option value="30" selected>만 30세 이상 (패밀리 세단 적정기)</option>
+                                <option value="35">만 35세 이상 (중장년 안정기)</option>
+                                <option value="43">만 43세 이상 (부부 공동 명의)</option>
+                                <option value="48">만 48세 이상 (시니어 특화)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="driverScope">운전자 보장 범위</label>
+                            <select id="driverScope" required>
+                                <option value="1">기본 1인 한정 (본인 전용)</option>
+                                <option value="1.2">부부 한정 특약 (배우자 동시 운전)</option>
+                                <option value="1.5">가족 한정 특약 (형제자매 제외)</option>
+                                <option value="1.8">가족 및 지정 1인 추가</option>
+                                <option value="2.2">누구나 가입 (전연령 오픈 요금)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="driverExp">기존 운전 경력 여부</label>
+                            <select id="driverExp" required>
+                                <option value="new">신규 최초 가입 (할증 요율 높음)</option>
+                                <option value="1y">경력 1년 이상 3년 미만</option>
+                                <option value="3y" selected>경력 3년 이상 무사고 지속</option>
+                                <option value="5y">경력 5년 이상 베테랑 운전자</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">예상 연간 주행거리</label>
+                            <select id="mileage" required>
+                                <option value="3000">연 3,000km 이하 (최대 할인 약 35%)</option>
+                                <option value="5000">연 5,000km 이하 (마일리지 적극 환급)</option>
+                                <option value="10000" selected>연 10,000km 이하 (통근 및 나들이)</option>
+                                <option value="15000">연 15,000km 이하 (장거리 여행 포함)</option>
+                                <option value="20000">연 20,000km 초과 (할인 미적용)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="safetyScore">티맵(TMAP) 안전운전 점수</label>
+                            <select id="safetyScore" required>
+                                <option value="none">없음 혹은 70점 미만 (기본료)</option>
+                                <option value="80">80점 이상 (약 10% 추가 할인)</option>
+                                <option value="90">90점 이상 (약 12% 특별 할인)</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="adasOptions">추가 장착된 안전사양 및 특약 조건 (중복 선택 가능)</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+                                <label style="font-weight: normal; font-size: 0.95em;">
+                                    <input type="checkbox" id="adas" checked> 차선이탈 및 전방충돌방지 (ADAS)
+                                </label>
+                                <label style="font-weight: normal; font-size: 0.95em;">
+                                    <input type="checkbox" id="blackbox" checked> 고화질 블랙박스 장착 할인
+                                </label>
+                                <label style="font-weight: normal; font-size: 0.95em;">
+                                    <input type="checkbox" id="child"> 만 6세 이하 자녀 할인 적용
+                                </label>
+                                <label style="font-weight: normal; font-size: 0.95em;">
+                                    <input type="checkbox" id="tpass"> 대중교통 이용 할인 동시 가입
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">그랜저 GN7 상세 견적 계산하기</button>
+                </form>
+
+                <div class="calc-result-box" id="resultBox" style="display: none;">
+                    <h3>모의 견적 계산 결과</h3>
+                    <p>선택하신 조건에 기반한 현대 디올뉴 그랜저 GN7 다이렉트 예상 요금입니다.</p>
+                    <div class="calc-price" id="calcPrice">0 원</div>
+                    <p style="font-size: 0.85em; color: var(--text-muted); margin-bottom: 0;">
+                        본 계산 결과는 2026년 12개 주요 손해보험사의 요율 데이터를 참고하여 작성한 통계적 예상치입니다. 가입 시점 및 사고 경력에 따라 실제 다이렉트 사이트 계산 요금과 차이가 발생할 수 있습니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SEO 본문 카드 1 -->
+            <section class="content-card">
+                <h2>디올뉴 그랜저 GN7 세대별 보험 요금 및 연간 유지 비용 차이점</h2>
+                <p>
+                    현대자동차의 대표 준대형 세단인 <strong>디올뉴 그랜저 GN7</strong>은 세련된 외장 디자인과 첨단 디지털 사양이 복합적으로 적용되어 대중적인 관심을 받고 있습니다. 그랜저 GN7은 과거 중장년층의 전유물이라는 인식에서 벗어나 젊은 감각으로 변화하면서 20대와 30대 신규 구매 고객 유입 비율이 매우 높아졌습니다. 이로 인해 <strong>연령별 디올뉴 그랜저 GN7 보험료 차이</strong>가 구매 결정의 중요한 척도가 되고 있습니다.
+                </p>
+                <p>
+                    일반적으로 신차 등록 기준 <strong>20대 사회초년생</strong>이 그랜저 gn7 모델을 패밀리카 또는 생애 첫 차로 신규 등록할 경우, 자동차 요금 구조상 나이 제한 페널티가 강하게 작용하여 매년 상당한 지출 부담을 감수해야 합니다. 반면 30대 이상이거나 부부 한정 특약, 무사고 이력이 누적된 가구의 경우에는 요금 부담이 상대적으로 급격히 낮아지는 특징을 보입니다.
+                </p>
+                
+                <div class="table-wrapper">
+                    <table class="premium-table">
+                        <thead>
+                            <tr>
+                                <th>대상 연령대</th>
+                                <th>추천 요금 세팅</th>
+                                <th>예상 평균 비용 (가솔린 2.5)</th>
+                                <th>다이렉트 최저가 설계 포인트</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>만 21세 이하 신규</td>
+                                <td>가족한정 경력인정 필수</td>
+                                <td class="highlight-cell">190만 ~ 260만 원</td>
+                                <td>부모님 밑으로 공동명의 지분 매입 방식</td>
+                            </tr>
+                            <tr>
+                                <td>만 26세 이상 직장인</td>
+                                <td>본인 1인 전용 다이렉트</td>
+                                <td class="highlight-cell">110만 ~ 150만 원</td>
+                                <td>안전운전 점수 12% 할인 및 마일리지 연동</td>
+                            </tr>
+                            <tr>
+                                <td>만 30세 이상 부부</td>
+                                <td>부부 공동 한정 특약</td>
+                                <td class="highlight-cell">75만 ~ 98만 원</td>
+                                <td>자녀 추가 특약 및 대중교통 이용 할인 병행</td>
+                            </tr>
+                            <tr>
+                                <td>만 43세 이상 1인</td>
+                                <td>본인 전용 장기 무사고</td>
+                                <td class="highlight-cell">55만 ~ 72만 원</td>
+                                <td>블랙박스 상시 작동 및 빌트인캠 할인 결합</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tip-box">
+                    <h4>전문가 추천 꿀팁: 디올뉴 그랜저 GN7 신규 가입 전 알아둘 사항</h4>
+                    <p>
+                        디올뉴 그랜저는 차량 내부에 최첨단 센서 및 전자장비(HUD, 빌트인캠 2, 서라운드 뷰 모니터 등)가 집약되어 있어 가벼운 접촉 사고 시에도 프론트 범퍼 수리비와 부품대 및 센서 영점 조정 요금이 무시할 수 없는 수준으로 발생합니다. 이 때문에 자기차량손해(자차) 가입을 배제하는 일은 매우 무모한 선택이며, 자차 요금에서 혜택을 보기 위해 첨단 안전장치 장착 특약 및 빌트인캠 전용 특별 할인을 놓치지 말고 계산기에 적용해야 합니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SEO 본문 카드 2 -->
+            <section class="content-card">
+                <h2>커뮤니티 내돈내산 가입 후기 및 엔진 등급별 비교</h2>
+                <p>
+                    국내 자동차 커뮤니티인 <strong>보배드림</strong>, <strong>디시인사이드 차갤</strong>, 그리고 대표적 커뮤니티인 <strong>에펨코리아(펨코)</strong>에서는 디올뉴 그랜저 GN7 오너들의 다양한 내돈내산 영수증과 보험료 실태가 공유되고 있습니다. 사용자들의 후기를 종합하면, 연간 평균 운행 요율과 세금 부담을 줄이기 위해 하이브리드(1.6 HEV) 모델을 선택하는 가구가 많지만, 보험료 자체만 놓고 볼 때는 엔진 사양별로 희비가 엇갈리기도 합니다.
+                </p>
+                <p>
+                    그랜저 gn7 1.6 하이브리드 모델은 차량 신차 가격이 높기 때문에 출고 이후 가입하게 되는 자기차량손해 담보 가액이 기본 가솔린 2.5 모델 대비 약 300만 원에서 500만 원 정도 높게 설정됩니다. 이로 인해 초기 기본료는 하이브리드가 다소 비싸게 산출될 수 있으나, 공영주차장 환급 혜택, 우수한 연비 효율성, 그리고 친환경 요율 적용 등이 더해져 장기적인 전체 비용 포트폴리오를 따졌을 때 장단점이 확연히 차이 납니다. 반대로 3.5 가솔린 모델은 마력과 주행감은 뛰어나지만 대형 세단으로 세분되어 기본 손해율 기준이 불리하게 설계되는 경향이 있습니다.
+                </p>
+                
+                <h3>그랜저 GN7 파워트레인별 보험료 및 연간 세금 비교표</h3>
+                <div class="table-wrapper">
+                    <table class="premium-table">
+                        <thead>
+                            <tr>
+                                <th>엔진 형식</th>
+                                <th>차량 가격 범위</th>
+                                <th>예상 자차 요금 비율</th>
+                                <th>공식 세금 및 장단점 분석</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.6 하이브리드</td>
+                                <td>4,300만 ~ 5,300만 원</td>
+                                <td>가장 높은 가액 요율</td>
+                                <td>연간 세금 약 29만 원으로 저렴, 유류비 최대 40% 절감</td>
+                            </tr>
+                            <tr>
+                                <td>2.5 가솔린</td>
+                                <td>3,700만 ~ 4,700만 원</td>
+                                <td>표준형 중간 가액</td>
+                                <td>중저가 유지 비용, 패밀리카로 가장 선호되는 등급</td>
+                            </tr>
+                            <tr>
+                                <td>3.5 가솔린</td>
+                                <td>4,000만 ~ 5,000만 원</td>
+                                <td>높은 손해율 적용</td>
+                                <td>높은 연간 자동차세 부담 및 강력한 주행 감각 구현</td>
+                            </tr>
+                            <tr>
+                                <td>3.5 LPi 일반</td>
+                                <td>3,900만 ~ 4,400만 원</td>
+                                <td>렌터카 기준 등급 산정</td>
+                                <td>충전 인프라 활용에 우수, 중고차 요율 가중치 발생 가능</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    많은 소유주가 사용하는 네이버 모바일 카드 결제 혜택이나 유튜브, 인스타그램 가입 인증 이벤트 등 인터넷 다이렉트 갱신 요율 비교 사이트를 보면, 어떤 연령대이든 간에 주행거리 마일리지를 지켰을 때 환급받는 비용이 전체 만족도의 절반 이상을 차지한다고 말합니다. 따라서 본인의 통근 거리가 짧다면 매년 다이렉트 갱신 시 주행거리를 정직하게 입력하고 남은 차액을 고스란히 현금지원이나 상품권 대신 적립받는 방식으로 장기적인 비용 지출을 합리화하는 전략이 요구됩니다.
+                </p>
+            </section>
+
+            <!-- SEO 본문 카드 3 -->
+            <section class="content-card">
+                <h2>인슈어테크 및 인공지능(AI) 플랫폼을 이용한 그랜저 GN7 다이렉트 싼곳 찾기</h2>
+                <p>
+                    최근 2026년 보험 업계의 가장 지배적인 변화 중 하나는 <strong>인공지능(AI)과 토스(Toss), 제미나이(Gemini), 챗지피티(ChatGPT)</strong> 등 진보된 대형 기술 플랫폼이 소비자들의 현명한 금융 의사결정을 돕는 비서 역할을 직접 수행하기 시작했다는 점입니다. 이제 가입자는 단순히 오프라인 상담 전화나 설계사 컨설팅 업체를 수소문할 필요 없이 개인의 실제 주행 데이터를 앱과 어플로 손쉽게 전송하여 다이렉트 보험 중에서 가장 저렴한곳 순위를 1분 안에 실시간으로 확인할 수 있습니다.
+                </p>
+                <p>
+                    전통적으로 고객센터 유선 연락망을 통하면 각종 마케팅 전화 수신 동의가 들어가 번거로웠으나, 네이버페이나 구글 검색, 인스타그램 등 사회 관계망 서비스에서 연동되는 스마트 계산 서비스를 통해 대기 시간 없이 비교 계산이 완료되는 형태입니다. 게다가 이 방식은 특정 사은품 지급 이벤트 및 가입 지원금 성격의 상품권 지급 좌표를 수집하기에도 용이하여 30대 이하 세대로부터 큰 폭의 추천을 받고 있습니다.
+                </p>
+                <p>
+                    특히 텔레그램이나 카카오톡 오픈채팅방 내 공유되는 대기업 자동차 다이렉트 할인 혜택 코드를 복사하여 활용하는 사례도 있습니다. 하지만 이때 무분별한 캐시백 지급 약속 같은 허위 정보에 노출되는 부작용이 있으니 주의가 필요합니다. 금융당국이 인증하는 투명한 비교 사이트 경로를 이용하고, 신뢰성 있는 공식 기관의 지표를 대조하는 버릇을 들이는 것이 좋습니다.
+                </p>
+
+                <div class="tag-list">
+                    <span class="tag-item">#디올뉴그랜저보험료</span>
+                    <span class="tag-item">#그랜저gn7다이렉트</span>
+                    <span class="tag-item">#그랜저하이브리드보험료</span>
+                    <span class="tag-item">#20대그랜저요금</span>
+                    <span class="tag-item">#30대그랜저유지비</span>
+                    <span class="tag-item">#다이렉트저렴한곳</span>
+                    <span class="tag-item">#티맵안전운전할인</span>
+                    <span class="tag-item">#현대그랜저7세대</span>
+                    <span class="tag-item">#자동차보험모의계산</span>
+                    <span class="tag-item">#그랜저자차비용</span>
+                </div>
+            </section>
+
+            <!-- 자주 묻는 질문 FAQ (Accordion 형식) -->
+            <section class="content-card faq-section">
+                <h2>디올뉴 그랜저 GN7 자동차보험 핵심 질의응답 (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-trigger">Q1. 20대 신규 가입자인데 부모님 밑으로 1인 지분 가입이 정말 유리한가요?</button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            예, 아주 유리합니다. 신차를 살 때 본인 단독 명의로 등록하는 대신, 부모님과 지분을 공동명의(예: 부모님 99% 대 본인 1%)로 설정하여 차량을 공동 소유주로 등록합니다. 그리고 보험의 계약주를 부모님으로 지정하고 본인을 가족 한정이나 부부 플러스 자녀 한정 같은 운전 지정 범위에 등록하게 되면, 부모님의 풍부한 무사고 요율 등급을 그대로 적용받게 되어 20대 단독 대비 연간 보험료를 절반 가까이 아낄 수 있는 실용적인 방법입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">Q2. 그랜저 GN7 가입 시 대물배상 한도는 5억 원과 10억 원 중 어느 것이 추천되나요?</button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            무조건 최소 5억 원 이상, 가급적이면 10억 원 한도 가입을 강력하게 추천합니다. 도로 위 고가 수입 외제차의 비중이 늘어난 환경에서 사고가 발생할 경우, 단순 수리비에 대차 비용(렌터카 비용)이 억 단위로 청구되는 사례가 흔해졌습니다. 대물배상 한도를 5억 원에서 10억 원으로 상향 조정할 때 가해지는 연간 추가 요금 격차는 불과 5,000원에서 2만 원 이내에 불과하므로, 가성비 면에서 절대적인 안전을 보장하는 최고 한도로 설계하시는 편이 마음의 안정을 주는 현명한 길입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">Q3. 빌트인캠 2 옵션을 넣었는데, 블랙박스 할인 특약 중복 혜택이 주어지나요?</button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            그렇습니다. 현대자동차 순정 빌트인캠 2 옵션은 차량 출고 단계에서 장착된 공식 블랙박스로 인정받으므로, 일반 외장 거치형 사제 블랙박스 장착과 완전히 동일하게 상시 작동 관련 할인이 자동 적용됩니다. 게다가 거치형 기기와 다르게 배선 노출이나 고열 작동 오동작 우려가 적기 때문에 보험사 측에서도 손해 발생 인과 요율 측정 시 신뢰성을 아주 높게 쳐주는 경향이 있습니다. 가입 시 빌트인캠 녹화 작동 화면 및 차량 전면 사진을 등록하면 바로 3%에서 5%의 혜택을 챙겨갈 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">Q4. 마일리지 환급 시 돌려받는 현금은 언제 입금되나요?</button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            연간 가입 계약 만기 30일 전부터 만기 후 15일 이내에 최종 차량 계기판 누적거리 계측 사진을 등록하면 심사가 하루 이틀 만에 완료됩니다. 이후 환급 예정액이 결정되어 기존 결제 수단으로 취소 처리되거나, 본인 명의 계좌로 약 3영업일 이내에 전액 현금으로 환불 입금되어 돌려받으실 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 공신력 있는 외부 정보처 링크 -->
+            <section class="content-card external-links">
+                <h4>디올뉴 그랜저 GN7 보험료 산정 신뢰도 높은 외부 공식 정보망</h4>
+                <p>보다 구체적이고 정교한 분석이나 모델 정보를 신뢰할 수 있는 공식 경로를 통해 최종 대조하여 보시기 바랍니다.</p>
+                <ul>
+                    <li><a href="https://directccheckl.reliabledone.com" target="_blank" rel="noopener">종합 금융 가이드 센터 (Reliabledone)</a>: 다이렉트 차량 특약 요금 산정 시 적용되는 기초 인슈어테크 개념 일람</li>
+                    <li><a href="https://namu.wiki/w/%ED%98%84%EB%8C%80_%EA%B7%B8%EB%9E%9C%EC%A0%80/7%EC%84%B8%EB%8C%80" target="_blank" rel="noopener">나무위키 현대 그랜저 7세대 항목</a>: 디올뉴 그랜저 GN7 상세 라인업 제원 및 편의 옵션 정보 제공</li>
+                    <li><a href="https://www.fss.or.kr" target="_blank" rel="noopener">금융감독원 (FSS)</a>: 금융소비자 권익 강화를 위한 보험 요율 모니터링 가이드 확인</li>
+                    <li><a href="https://www.kidi.or.kr" target="_blank" rel="noopener">보험개발원 (KIDI)</a>: 국내 정식 출시 차량 등급별 손해율 등급 및 요율 기초 통계 검토</li>
+                </ul>
+            </section>
+        </div>
     </main>
-  </body>
-</html>
+
+  
+    <!-- 자바스크립트 코드 (모의 계산기 동작 및 FAQ 토글) -->
+    <script>
+        // FAQ 아코디언 핸들러
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.parentElement;
+                const content = item.querySelector('.faq-content');
+                
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = '0px';
+                    item.classList.remove('active');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // 자동차 보험료 모의 계산 엔진
+        function calculatePremium(event) {
+            event.preventDefault();
+            
+            const carType = document.getElementById('carType').value;
+            const driverAge = parseInt(document.getElementById('driverAge').value);
+            const driverScope = parseFloat(document.getElementById('driverScope').value);
+            const driverExp = document.getElementById('driverExp').value;
+            const mileage = parseInt(document.getElementById('mileage').value);
+            const safetyScore = document.getElementById('safetyScore').value;
+            
+            const adasChecked = document.getElementById('adas').checked;
+            const blackboxChecked = document.getElementById('blackbox').checked;
+            const childChecked = document.getElementById('child').checked;
+            const tpassChecked = document.getElementById('tpass').checked;
+
+            // 기본 요금 베이스 결정 (차량 가액 기준)
+            let basePremium = 750000;
+            if (carType === '1.6h') {
+                basePremium = 820000; // 하이브리드는 자차가액이 높음
+            } else if (carType === '3.5g') {
+                basePremium = 890000; // 대형 배기량 손해율
+            } else if (carType === '3.5lpi') {
+                basePremium = 780000;
+            }
+
+            // 1. 연령별 가중치 조율
+            let ageMultiplier = 1.0;
+            if (driverAge === 21) ageMultiplier = 2.3;
+            else if (driverAge === 24) ageMultiplier = 1.7;
+            else if (driverAge === 26) ageMultiplier = 1.3;
+            else if (driverAge === 30) ageMultiplier = 1.0;
+            else if (driverAge === 35) ageMultiplier = 0.88;
+            else if (driverAge === 43) ageMultiplier = 0.76;
+            else if (driverAge === 48) ageMultiplier = 0.72;
+
+            // 2. 경력 할인 가중치
+            let expMultiplier = 1.0;
+            if (driverExp === 'new') expMultiplier = 1.5;
+            else if (driverExp === '1y') expMultiplier = 1.15;
+            else if (driverExp === '3y') expMultiplier = 0.9;
+            else if (driverExp === '5y') expMultiplier = 0.8;
+
+            // 중간 연산 
+            let calculated = basePremium * ageMultiplier * driverScope * expMultiplier;
+
+            // 3. 특약 감면 요율 적용
+            let discountRate = 1.0;
+
+            // 마일리지 할인
+            if (mileage === 3000) discountRate -= 0.35;
+            else if (mileage === 5000) discountRate -= 0.28;
+            else if (mileage === 10000) discountRate -= 0.15;
+            else if (mileage === 15000) discountRate -= 0.05;
+
+            // ADAS 할인
+            if (adasChecked) discountRate -= 0.07;
+            // 블랙박스 할인
+            if (blackboxChecked) discountRate -= 0.04;
+            // 자녀 특별 할인
+            if (childChecked) discountRate -= 0.12;
+            // 티맵 안전점수 할인
+            if (safetyScore === '80') discountRate -= 0.10;
+            else if (safetyScore === '90') discountRate -= 0.12;
+            // 대중교통 이용 
+            if (tpassChecked) discountRate -= 0.05;
+
+            // 누적 할인 하한선 확보 (최소 0.4 배율 아래로는 할인 제한)
+            if (discountRate < 0.42) {
+                discountRate = 0.42;
+            }
+
+            calculated = calculated * discountRate;
+
+            // 소수점 절삭 및 원화 단위 포맷
+            const finalResult = Math.round(calculated);
+            const formattedResult = new Intl.NumberFormat('ko-KR').format(finalResult) + " 원";
+
+            // 계산 결과 노출 및 해당 영역으로 포커싱
+            const resultBox = document.getElementById('resultBox');
+            const calcPrice = document.getElementById('calcPrice');
+            
+            calcPrice.textContent = formattedResult;
+            resultBox.style.display = 'block';
+            
+            // 계산 후 결과창으로 자연스럽게 스크롤
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+  
